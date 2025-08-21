@@ -188,6 +188,22 @@ wheels = [
 ]
 
 [[package]]
+name = "pymongo"
+version = "3.13.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/ec/ff/9b08f29b57384e1f55080d15a12ba4908d93d46cd7fe83c5c562fdcd3400/pymongo-3.13.0.tar.gz", hash = "sha256:e22d6cf5802cd09b674c307cc9e03870b8c37c503ebec3d25b86f2ce8c535dc7", size = 804388 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/a6/30/c6fba6f336c43f2c7961a949cb1bab2a08082faefb90174f223b22664632/pymongo-3.13.0-cp311-cp311-macosx_10_9_universal2.whl", hash = "sha256:bdd34c57b4da51a7961beb33645646d197e41f8517801dc76b37c1441e7a4e10", size = 430394 },
+    { url = "https://files.pythonhosted.org/packages/b0/93/fd1f114c1613fa12b7fc74ee6606adb9eebb0865f0b7ac956be9f55c43d6/pymongo-3.13.0-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:26f9cc42a162faa241c82e117ac85734ae9f14343dc2df1c90c6b2181f791b22", size = 518607 },
+    { url = "https://files.pythonhosted.org/packages/49/43/e12b7b3deeb618a8d6a6265fbdb418993331aee282c0a9014232d67c9c3d/pymongo-3.13.0-cp311-cp311-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:4a82a1c10f5608e6494913faa169e213d703194bfca0aa710901f303be212414", size = 526308 },
+    { url = "https://files.pythonhosted.org/packages/69/a3/7f7b94125de760329975868e8f4bb6288d31d4dd0b505554beea58703540/pymongo-3.13.0-cp311-cp311-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:8927f22ef6a16229da7f18944deac8605bdc2c0858be5184259f2f7ce7fd4459", size = 521527 },
+    { url = "https://files.pythonhosted.org/packages/7e/6b/6d79a93c0a6b9c02798f86e35a6f37e568624be6194bf96eef2281a9d66b/pymongo-3.13.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:e6f8191a282ef77e526f8f8f63753a437e4aa4bc78f5edd8b6b6ed0eaebd5363", size = 518080 },
+    { url = "https://files.pythonhosted.org/packages/19/13/1e5ceb828c5b5f9bae253ba2712e1e66a26e0bdd9de9f94f04badeb0b99c/pymongo-3.13.0-cp311-cp311-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:4d9ed67c987bf9ac2ac684590ba3d2599cdfb0f331ee3db607f9684469b3b59d", size = 509422 },
+    { url = "https://files.pythonhosted.org/packages/cf/e1/968dd3a62a0a8fd49f5edb0395a09c8b65b89a3c1d7353a6d8bb67e6d893/pymongo-3.13.0-cp311-cp311-win32.whl", hash = "sha256:e8f6979664ff477cd61b06bf8aba206df7b2334209815ab3b1019931dab643d6", size = 391275 },
+    { url = "https://files.pythonhosted.org/packages/22/64/fe59e4175aa00d98241f007783268e87610d0a218c8ea3311956f3806986/pymongo-3.13.0-cp311-cp311-win_amd64.whl", hash = "sha256:174fd1000e896d0dfbc7f6d7e6a1992a4868796c7dec31679e38218c78d6a942", size = 394541 },
+]
+
+[[package]]
 name = "python-dotenv"
 version = "1.1.1"
 source = { registry = "https://pypi.org/simple" }
@@ -237,12 +253,16 @@ version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "fastapi" },
+    { name = "pymongo" },
+    { name = "python-dotenv" },
     { name = "uvicorn", extra = ["standard"] },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "fastapi", specifier = ">=0.116.1" },
+    { name = "pymongo", specifier = ">=3.12.0,<4.0.0" },
+    { name = "python-dotenv", specifier = ">=1.0.0" },
     { name = "uvicorn", extras = ["standard"], specifier = ">=0.35.0" },
 ]
 
