@@ -1,6 +1,6 @@
 import uvicorn
 from fastapi import FastAPI
-from sample.routers import items, users
+from app.routers import items, users
 
 app = FastAPI(title="Sample FastAPI App", version="1.0.0")
 
@@ -14,4 +14,4 @@ async def root():
 
 
 if __name__ == "__main__":
-    uvicorn.run("sample.main:app", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run("app.main:app", host="0.0.0.0", port=8000, reload=True)
