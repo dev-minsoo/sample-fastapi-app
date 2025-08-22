@@ -33,7 +33,7 @@ async def create_user(user_data: UserCreate):
     user_dict["updated_at"] = datetime.utcnow()
     
     result = db.users.insert_one(user_dict)
-    user_dict["_id"] = result.inserted_id
+    user_dict["_id"] = str(result.inserted_id)
     
     return User(**user_dict)
 
@@ -44,6 +44,8 @@ async def get_users():
         raise HTTPException(status_code=503, detail="Database not available")
     
     users = list(db.users.find())
+    for user in users:
+        user["_id"] = str(user["_id"])
     return [User(**user) for user in users]
 
 @router.get("/{user_id}", response_model=User)
@@ -56,6 +58,7 @@ async def get_user(user_id: str):
         user = db.users.find_one({"_id": ObjectId(user_id)})
         if not user:
             raise HTTPException(status_code=404, detail="User not found")
+        user["_id"] = str(user["_id"])
         return User(**user)
     except Exception:
         raise HTTPException(status_code=400, detail="Invalid user ID")
@@ -78,6 +81,7 @@ async def update_user(user_id: str, user_data: UserUpdate):
                 raise HTTPException(status_code=404, detail="User not found")
         
         user = db.users.find_one({"_id": ObjectId(user_id)})
+        user["_id"] = str(user["_id"])
         return User(**user)
     except Exception:
         raise HTTPException(status_code=400, detail="Invalid user ID")
